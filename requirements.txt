@@ -1,3 +1,2 @@
-plotly.express
-plotly.graph_objects
-matplotlib.pyplot
+plotly==5.7.0
+matplotlib==3.8.1
