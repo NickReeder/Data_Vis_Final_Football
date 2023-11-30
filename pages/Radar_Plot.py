@@ -194,7 +194,7 @@ def build_rush_radar_plot(team1, team2):
     
     fig = go.Figure()
 
-    categories_rush = ['Avg. Yards per Play','Avg. Yards After Catch','First Down Conv. %',
+    categories_rush = ['Avg. Yards per Play','Avg. Yards After Contact','First Down Conv. %',
                        'TD %','Fumble %','Avg. Yards per Play']
 
     fig.add_trace(
