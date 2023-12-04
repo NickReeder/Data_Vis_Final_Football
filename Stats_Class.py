@@ -5,33 +5,50 @@ import os
 
 import json
 
-#path = 'c:\\Users\\Nick\\Dropbox\\PC\\Documents\\GitHub\\WM_Football_Independent_Study'
+path = 'c:\\Users\\Nick\\Dropbox\\PC\\Documents\\GitHub\\DATA_VIS_FINAL_FOOTBALL'
 
 #path = '/content/drive/My Drive/WM_Football_Independent_Study'
 
-path = input('Please Enter Path to Data: ')
-os.chdir(path)
 
 
-from src.football_viz import FBField
-from src.football_db import FootballDB
-import src.dropdown_lists as dropdown
-os.chdir(path)
 
-
-from src.football_viz import FBField
-from src.football_db import FootballDB
-import src.dropdown_lists as dropdown
-
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 
 
 
 class Stats:
 
   def __init__(self):
-    self.set_up = False
+    # ans = None
+    # while ans not in ['Y', 'N']:
+    #   ans = input('Is Data base built [Y/N]')
+    # if ans == 'N':
+
+    #   path = input('Enter path to SRC ')
+    #   os.chdir(path)
+
+    #   from src.football_db import FootballDB
+    #   import src.dropdown_lists as dropdown
+
+
+    #   from src.football_viz import FBField
+    #   from src.football_db import FootballDB
+    #   self.db = FootballDB()
+    # else:
+    #   print(os.getcwd())
+    #   ans_2 = input('Please enter path to db ')
+    
+
+    
+    from src.football_db import FootballDB
+    import src.dropdown_lists as dropdown
+
+
+    #from src.football_viz import FBField
+    from src.football_db import FootballDB
     self.db = FootballDB()
+    
+    self.set_up = False
 
     self.rush = self.db.get_tRush()
     self.throw = self.db.get_tPass()
@@ -202,7 +219,7 @@ class Stats:
 
   ##################################################
 
-  def get_offensive_dict(df):
+  def get_offensive_dict(self, df):
 
     '''
     Inputs: a pandas dataframe
@@ -213,7 +230,7 @@ class Stats:
     output = {}
 
     for team in df['offense'].unique():
-      output[team] = get_offensive_stats(team, df)
+      output[team] = self.get_offensive_stats(team, df)
 
     return(output)
 
@@ -221,11 +238,11 @@ class Stats:
   ####################################
 
 
-  def get_defensive_dict(df):
+  def get_defensive_dict(self, df):
     output = {}
 
     for team in df['defense'].unique():
-      output[team] = get_defensive_stats(team, df)
+      output[team] = self.get_defensive_stats(team, df)
 
     return(output)
 
@@ -390,4 +407,5 @@ class Stats:
 
 stats = Stats()
 
-to_ret = stats.get_json()
+stats.get_json()
+
