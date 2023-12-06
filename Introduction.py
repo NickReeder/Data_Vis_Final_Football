@@ -34,6 +34,6 @@ st.markdown(
 
     ### Current Plots
     * Radar Plot
-    * Ridge Plot
+    * Ridge Plot (yet to be incorporated into webpage)
     """
 )
