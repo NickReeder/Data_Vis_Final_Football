@@ -15,11 +15,8 @@ team_list = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
 df_pass = FootballDB().get_tPass()
 df_rush = FootballDB().get_tRush()
 
-league_pass_df = pd.DataFrame(columns = ['season','team','avg_yards_gained','avg_yac','first_conv_perc','td_perc','to_perc'])
-league_rush_df = pd.DataFrame(columns = ['season','avg_yards_gained','avg_yac','first_conv_perc','td_perc','fum_perc'])
-
-st.sidebar.header("League Ranking Radar Plots")
-season_input = st.sidebar.number_input("Pick a season", 2013, 2022)
+league_pass_df = pd.DataFrame(columns = ['team','avg_yards_gained','avg_yac','first_conv_perc','td_perc','to_perc'])
+league_rush_df = pd.DataFrame(columns = ['avg_yards_gained','avg_yac','first_conv_perc','td_perc','fum_perc'])
 
 for team in team_list:
     
@@ -27,8 +24,6 @@ for team in team_list:
     
     team_pass = df_pass[df_pass.offense == team]
     team_rush = df_rush[df_rush.offense == team]
-    team_pass = team_pass[team_pass.season == season_input]
-    team_rush = team_rush[team_rush.season == season_input]
     
     pass_df = team_pass[['yards_gained','yards_after_catch','first_down_conv','touchdown','turnover_worthy_play']]
     rush_df = team_rush[['yards_gained','yards_after_contact','first_down_conv','touchdown','fumbles']]
@@ -257,6 +252,7 @@ def build_rush_radar_plot(team1, team2):
 
 st.set_page_config(page_title="League Ranking Radar Plots", page_icon="🔘")
 
+st.sidebar.header("League Ranking Radar Plots")
 col1, col2 = st.columns(2)
 with col1:
     team1 = st.sidebar.selectbox('Select First Team', team_list, index=0)
