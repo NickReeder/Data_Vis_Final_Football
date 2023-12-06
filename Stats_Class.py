@@ -19,6 +19,8 @@ from tqdm import tqdm
 class Stats:
 
   def __init__(self):
+
+    print('Building stats objects')
     # ans = None
     # while ans not in ['Y', 'N']:
     #   ans = input('Is Data base built [Y/N]')
@@ -105,7 +107,7 @@ class Stats:
 
   #####FUNCTIONS#####
 
-  def get_defensive_stats(self, team, df, verbose = False):
+  def get_defensive_stats(self, team, df, play_type, verbose = False):
     import numpy as np
 
     '''
@@ -147,10 +149,17 @@ class Stats:
     except KeyError:
       first_down_on_fourth_effic = 0
 
+
+    if play_type == 'pass':
+      turnover_pct = np.nansum(team_df['turnover_worthy_play'])/num_plays
+    else:
+      turnover_pct = np.nansum(team_df['fumbles'])/num_plays
+
     stats_dict = {'avg_yards_conceded': str(round(avg_yards_conceded, 3)),
                   'median_yards_conceded': str(median_yards_conceded),
                   'first_down_efficency': str(round(1 - first_down_efficency, 5)),
-                  'first_down_on_fourth_effic': str(round(1 - first_down_on_fourth_effic, 5))
+                  'first_down_on_fourth_effic': str(round(1 - first_down_on_fourth_effic, 5)),
+                  'turnover_pct': str(round(1 - turnover_pct, 5))
                   }
 
     return(stats_dict)
@@ -161,7 +170,7 @@ class Stats:
     ######################################################################################
 
 
-  def get_offensive_stats(self, team, df, verbose = False):
+  def get_offensive_stats(self, team, df, play_type, verbose = False):
     import numpy as np
 
 
@@ -209,10 +218,19 @@ class Stats:
       first_down_on_fourth_effic = 0
 
 
+
+    if play_type == 'pass':
+      #print(rush_team['interception'])
+      turnover_pct = np.nansum(rush_team['turnover_worthy_play'])/num_plays
+    else:
+      turnover_pct = np.nansum(rush_team['fumbles'])/num_plays
+
+
     stats_dict = {'avg_yard': str(np.round(avg_yard, 3)),
                   'median_yard': str(median_yard),
                   'fd_effic': str(np.round(fd_effic, 5)),
-                  'first_down_on_fourth_effic': str(np.round(first_down_on_fourth_effic, 5))
+                  'first_down_on_fourth_effic': str(np.round(first_down_on_fourth_effic, 5)),
+                  'turnover_pct': str(np.round(turnover_pct, 5))
                 }
     return(stats_dict)
 
@@ -249,7 +267,7 @@ class Stats:
   ###################################
 
 
-  def get_off_stats_against(self, offense, defense, df, verbose = False):
+  def get_off_stats_against(self, offense, defense, df, play_type, verbose = False):
     '''
     Inputs: offense, defense, dataframe
     Outputs: dictionary of offensive stats against that specfic team
@@ -273,14 +291,14 @@ class Stats:
         print('No data for', offense, 'against', defense)
       return()
     else:
-      stats_dict = self.get_offensive_stats(offense, df_combo)
+      stats_dict = self.get_offensive_stats(offense, df_combo, play_type)
 
     return(stats_dict)
 
 
   #########################
 
-  def get_def_stats_against(self, offense, defense, df, verbose = False):
+  def get_def_stats_against(self, offense, defense, df, play_type, verbose = False):
     '''
     Inputs: offense, defense, dataframe
     Outputs: dictionary of defensive stats against that specfic team
@@ -302,14 +320,14 @@ class Stats:
         print('No data for', offense, 'against', defense)
       return()
     else:
-      stats_dict = self.get_defensive_stats(defense, df_combo)
+      stats_dict = self.get_defensive_stats(defense, df_combo, play_type)
 
     return(stats_dict)
 
   #########################################
 
 
-  def get_offensive_dict_against(self, offense, df):
+  def get_offensive_dict_against(self, offense, df, play_type):
     '''
     Inputs: offense, dataframe
     Outputs: dictionary of offensive stats against each team
@@ -323,7 +341,7 @@ class Stats:
     output = {}
 
     for team in df['defense'].unique():
-      output[team] = self.get_off_stats_against(offense, team, df)
+      output[team] = self.get_off_stats_against(offense, team, df, play_type)
 
     return(output)
 
@@ -331,7 +349,7 @@ class Stats:
   ####################################
 
 
-  def get_defensive_dict_against(self, defense, df):
+  def get_defensive_dict_against(self, defense, df, play_type):
     '''
     Inputs: defense, dataframe
     Outputs: dictionary of defensive stats against each team
@@ -344,7 +362,7 @@ class Stats:
     output = {}
 
     for team in df['offense'].unique():
-      output[team] = self.get_def_stats_against(team, defense, df)
+      output[team] = self.get_def_stats_against(team, defense, df, play_type)
 
     return(output)
 
@@ -356,15 +374,15 @@ class Stats:
                      desc = 'Building Statistics JSON'):
       #print(team)
       dict_of_teams[team] = {}
-      dict_of_teams[team]['rush_off_general'] = self.get_offensive_stats(team, self.rush)
-      dict_of_teams[team]['rush_def_general'] = self.get_defensive_stats(team, self.rush)
-      dict_of_teams[team]['pass_off_general'] = self.get_offensive_stats(team, self.throw)
-      dict_of_teams[team]['pass_def_general'] = self.get_defensive_stats(team, self.throw)
+      dict_of_teams[team]['rush_off_general'] = self.get_offensive_stats(team, self.rush, play_type= 'rush')
+      dict_of_teams[team]['rush_def_general'] = self.get_defensive_stats(team, self.rush, play_type= 'rush')
+      dict_of_teams[team]['pass_off_general'] = self.get_offensive_stats(team, self.throw, play_type= 'pass')
+      dict_of_teams[team]['pass_def_general'] = self.get_defensive_stats(team, self.throw, play_type= 'pass')
 
-      dict_of_teams[team]['rush_off_by_team'] = self.get_offensive_dict_against(team, self.rush)
-      dict_of_teams[team]['rush_def_by_team'] = self.get_defensive_dict_against(team, self.rush)
-      dict_of_teams[team]['pass_off_by_team'] = self.get_offensive_dict_against(team, self.throw)
-      dict_of_teams[team]['pass_def_by_team'] = self.get_defensive_dict_against(team, self.throw)
+      dict_of_teams[team]['rush_off_by_team'] = self.get_offensive_dict_against(team, self.rush, play_type= 'rush')
+      dict_of_teams[team]['rush_def_by_team'] = self.get_defensive_dict_against(team, self.rush, play_type= 'rush')
+      dict_of_teams[team]['pass_off_by_team'] = self.get_offensive_dict_against(team, self.throw, play_type= 'pass')
+      dict_of_teams[team]['pass_def_by_team'] = self.get_defensive_dict_against(team, self.throw, play_type= 'pass')
 
     self.dict_of_teams = dict_of_teams
 
@@ -406,6 +424,9 @@ class Stats:
 
 
 stats = Stats()
-
-stats.get_json()
+cwd = os.getcwd()
+try:
+  stats.get_json(path = cwd+'//data')
+except:
+  stats.get_json()
 
