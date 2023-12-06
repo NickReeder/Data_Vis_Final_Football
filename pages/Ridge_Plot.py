@@ -1,5 +1,5 @@
 import streamlit as st
-import Image
+from PIL import Image
 
 # Load the image
 image = Image.open("Ridgeline.png")
