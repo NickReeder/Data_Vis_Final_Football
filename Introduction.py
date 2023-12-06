@@ -13,28 +13,27 @@ hide_streamlit_style = """
     
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.write("# Welcome to Streamlit! 👋")
+st.write("# Welcome to VISTA: Visual Information System for Team Assessment!")
 
-st.sidebar.success("Select a demo above.")
+st.sidebar.success("Select a plot above.")
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+    The overall goal of this project is to create an interactive website to allow coaches and fans to gain
+    a useful and concise snapshot into an NFL team's play calling and results as well as that of its
+    competitors. The dashboard will provide visuals to allow the user to quickly see the strengths and
+    weaknesses of their team overall and against any specific team through a series of meta-statistics
+    that we generated. The meta-statistics will look at offensive and defensive outputs as well as
+    efficiencies such as first down conversions/preventions.
+
+    ### Potential Plots:
+    * Box/Violin Plot
+    * Radar Plot
+    * Ridge Plot
+    * Descriptive Distributions 
+
+    ### Current Plots
+    * Radar Plot
+    * Ridge Plot (yet to be incorporated into webpage)
     """
 )
-
-# HtmlFile = open("donut.html", 'r', encoding='utf-8')
-# source_code = HtmlFile.read()
-# components.html(source_code, height = 800, width = 900)
