@@ -55,6 +55,20 @@ class Stats:
     self.rush = self.db.get_tRush()
     self.throw = self.db.get_tPass()
 
+    self.changed_team = {
+      'OAK': 'LV',
+     'SD': 'LAC',
+     'SL': 'LA'
+     }
+
+    self.rush['offense'] = self.rush['offense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
+    self.rush['defense'] = self.rush['defense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
+
+    self.throw['offense'] = self.throw['offense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
+    self.throw['defense'] = self.throw['defense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
+    
+    
+
     self.rush_off = self.rush['offense'].unique()
     self.rush_def = self.rush['defense'].unique()
     self.throw_off = self.throw['offense'].unique()
@@ -106,6 +120,7 @@ class Stats:
 
 
   #####FUNCTIONS#####
+
 
   def get_defensive_stats(self, team, df, play_type, verbose = False):
     import numpy as np
