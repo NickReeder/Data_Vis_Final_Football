@@ -115,55 +115,68 @@ sns.set_style('ticks')
 sns.set_style({'font.family':'serif', 'font.serif':['Helvetica']})
 
 custom_colors = [
-                '#ff0000', # AFC E, red
-                '#0000ff', # AFC N, blue 
-                '#00802b', # AFC S, green
-                '#cc7a00', # AFC W, orange
+                '#d55e00', # AFC E
+                '#0072b2', # AFC N
+                '#cc79a7', # AFC S
+                '#f0e442', # AFC W
                 
-                '#ff0000', # NFC E, red
-                '#0000ff', # NFC N, blue 
-                '#00802b', # NFC S, green
-                '#cc7a00', # NFC W, orange
+                '#d55e00', # NFC E
+                '#0072b2', # NFC N
+                '#cc79a7', # NFC S
+                '#f0e442', # NFC W
         
                 ]
 
-fig = px.scatter(plotting_data, x = 'rush_off', y='pass_off',
-                 color = 'Divs', 
+
+fig = px.scatter(plotting_data, x = 'rush_def', y='pass_def',
+                 color = 'Divs',
                  color_discrete_sequence= custom_colors, 
                  symbol= 'Symbol',
-                 
                  hover_data={
                      'team':True,
-                     'rush_off': True,
-                     'pass_off': True,
-                     'rush_def': False,
-                     'pass_def': False,
+                     'rush_off': False,
+                     'pass_off': False,
+                     'rush_def': True,
+                     'pass_def': True,
                      'Divs': True,
                      'Symbol' : False
                  },
                  labels={
                      'team': 'Team Code',
                      'Divs': 'Division',
-                     'rush_off': 'Rushing Output',
-                     'pass_off': 'Passing Output'
+                     'rush_def': 'Avg. Rushing Concession',
+                     'pass_def': 'Avg. Passing Concession'
                  },
                  template = 'plotly_white')
 
 fig.update_traces(
     marker = dict(size = 10)
 )
-
-fig.add_hline(y = pass_off_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Passing Output',
+fig.add_hline(y = pass_def_avg, line_color = 'gray', line_dash = 'dash',
+              annotation_text = 'Avg. Passing Concesssion',
               annotation_position = 'top left', opacity = 0.7)
-fig.add_vline(x = rush_off_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Rushing Output',
+fig.add_vline(x = rush_def_avg, line_color = 'gray', line_dash = 'dash',
+              annotation_text = 'Avg. Rushing Concesssion',
               annotation_position = 'top left', opacity = 0.7)
 
 
-fig.update_layout(margin=dict(l=30, r=30, t=30, b=30),
-                    title = 'Team Offense Scatter Plot',
-                    title_font_size = 20)
+fig.update_layout(margin=dict(l=50, r=50, t=50, b=50),
+                    title = 'Team Defense Scatter Plot',
+                    title_font_size = 25,
+                    legend_title = 'Division',
+                        legend = dict(
+                                    bgcolor = 'LightBlue',
+                                    bordercolor = 'Black',
+                                    borderwidth = 1
+                                    ),
+                    )
+
+new_names = {'AFC East, circle': 'AFC East', 'AFC North, circle': 'AFC North', 
+             'AFC South, circle': 'AFC South', 'AFC West, circle': 'AFC West',
+             'NFC East, diamond': 'NFC East', 'NFC North, diamond': 'NFC North', 
+             'NFC South, diamond': 'NFC South', 'NFC West, diamond': 'NFC West',}
+
+fig.for_each_trace(lambda t: t.update(name = new_names[t.name]))
 
 fig.update_layout(height=600, width=800)
 
