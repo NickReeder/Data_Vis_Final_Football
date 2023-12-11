@@ -114,17 +114,16 @@ sns.set_theme(style = 'white')
 sns.set_style('ticks')
 sns.set_style({'font.family':'serif', 'font.serif':['Helvetica']})
 
-
 custom_colors = [
-                '#ff0000', # AFC E, red
-                '#0000ff', # AFC N, blue 
-                '#00802b', # AFC S, green
-                '#cc7a00', # AFC W, orange
+                '#d55e00', # AFC E
+                '#0072b2', # AFC N
+                '#cc79a7', # AFC S
+                '#f0e442', # AFC W
                 
-                '#ff0000', # NFC E, red
-                '#0000ff', # NFC N, blue 
-                '#00802b', # NFC S, green
-                '#cc7a00', # NFC W, orange
+                '#d55e00', # NFC E
+                '#0072b2', # NFC N
+                '#cc79a7', # NFC S
+                '#f0e442', # NFC W
         
                 ]
 
@@ -163,7 +162,21 @@ fig.add_vline(x = rush_def_avg, line_color = 'gray', line_dash = 'dash',
 
 fig.update_layout(margin=dict(l=50, r=50, t=50, b=50),
                     title = 'Team Defense Scatter Plot',
-                    title_font_size = 25)
+                    title_font_size = 25,
+                    legend_title = 'Division',
+                        legend = dict(
+                                    bgcolor = 'LightBlue',
+                                    bordercolor = 'Black',
+                                    borderwidth = 1
+                                    ),
+                    )
+
+new_names = {'AFC East, circle': 'AFC East', 'AFC North, circle': 'AFC North', 
+             'AFC South, circle': 'AFC South', 'AFC West, circle': 'AFC West',
+             'NFC East, diamond': 'NFC East', 'NFC North, diamond': 'NFC North', 
+             'NFC South, diamond': 'NFC South', 'NFC West, diamond': 'NFC West',}
+
+fig.for_each_trace(lambda t: t.update(name = new_names[t.name]))
 
 fig.update_layout(height=600, width=800)
 
