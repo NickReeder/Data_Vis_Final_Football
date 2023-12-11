@@ -15,6 +15,7 @@ team_list = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
 df_pass = FootballDB().get_tPass()
 df_rush = FootballDB().get_tRush()
 
+
 league_pass_df = pd.DataFrame(columns = ['team','avg_yards_gained','avg_yac','first_conv_perc','td_perc','to_perc'])
 league_rush_df = pd.DataFrame(columns = ['avg_yards_gained','avg_yac','first_conv_perc','td_perc','fum_perc'])
 
@@ -179,6 +180,7 @@ def build_pass_radar_plot(team1, team2):
             'xanchor': 'center',
             'yanchor': 'top'
         },
+        title_font_size = 25,
         width=600,
         height=500,
         polar=dict(
@@ -239,6 +241,7 @@ def build_rush_radar_plot(team1, team2):
             'xanchor': 'center',
             'yanchor': 'top'
         },
+        title_font_size = 25,
         width=600,
         height=500,
         polar=dict(

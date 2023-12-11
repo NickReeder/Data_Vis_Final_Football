@@ -34,6 +34,6 @@ st.markdown(
     Please click through the pages to view a more in depth look at each team.
 
 
-    Thanks & acknowledgements to Dr. Trenton Ford for his help on this project
+    Thanks & acknowledgements to Dr. Trenton Ford for his help on this project!
     """
 )
