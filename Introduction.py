@@ -20,7 +20,7 @@ st.sidebar.success("Select a plot above.")
 st.markdown(
     """
     The goal of VISTA is to provide the user with a quick and digestable snapshot of a teams perfomance through a visiual medium without comprimising on detail. 
-    Data was collected from PFF Ultimate and contains data on nearly every play from every NFL game for the last 10 seasons! A series of statistics were generatad,
+    Data was collected from PFF Ultimate and contains play-by-play data from every NFL game for the last 10 seasons! A series of statistics were generated,
     and are described below.
 
     * Offensive Efficency: The average yards gained per play
