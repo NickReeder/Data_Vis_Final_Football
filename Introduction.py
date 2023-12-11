@@ -25,11 +25,11 @@ st.markdown(
 
     * Offensive Efficency: The average yards gained per play
     * Defensive Efficency: The average yards conceded per play
-    * First Down Efficency: percentage of plays that convert a first down
-    * First Down on Fourth Efficency: percentage of plays that convert a first down on fourth down
+    * First Down Efficiency: percentage of plays that convert a first down
+    * First Down on Fourth Efficiency: percentage of plays that convert a first down on fourth down
     * Touch Down Efficency: percentage of plays that convert a first down
     * Defensive First Down Efficency: percentage of plays that conversion a first down
-    * Defensive First Down on Fourth Efficency: percentage of plays that do not allow a first down conversion on fourth down
+    * Defensive First Down on Fourth Efficiency: percentage of plays that do not allow a first down conversion on fourth down
 
     Please click through the pages to view a more in depth look at each team.
 
@@ -37,14 +37,15 @@ st.markdown(
     
     The thrid page is a ridgeline plot that____
     
-    The forth page allows the user to compare two teams over a variety of statsitcs in a radar plot
+    The fourth page allows the user to compare two teams over a variety of statistics in a radar plot.
 
-    The fith shows the user how a teams play callig has changed over time   
+    The fifth shows the user how a teams play calling has changed over time.   
 
 
 
 
 
     Thanks & acknowledgements to Dr. Trenton Ford for his help on this project!
+
     """
 )
