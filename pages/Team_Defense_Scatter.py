@@ -151,7 +151,7 @@ fig = px.scatter(plotting_data, x = 'rush_def', y='pass_def',
                  template = 'plotly_white')
 
 fig.update_traces(
-    marker = dict(size = 8)
+    marker = dict(size = 10)
 )
 fig.add_hline(y = pass_def_avg, line_color = 'gray', line_dash = 'dash',
               annotation_text = 'Avg. Passing Concesssion',
@@ -164,5 +164,7 @@ fig.add_vline(x = rush_def_avg, line_color = 'gray', line_dash = 'dash',
 fig.update_layout(margin=dict(l=50, r=50, t=50, b=50),
                     title = 'Team Defense Scatter Plot',
                     title_font_size = 25)
+
+fig.update_layout(height=600, width=800)
 
 st.plotly_chart(fig)
