@@ -33,6 +33,16 @@ st.markdown(
 
     Please click through the pages to view a more in depth look at each team.
 
+    The first two pages provide an overview of the leauge, comparing each teams overall offensive and defense efficency.
+
+    The third page allows the user to compare two teams over a variety of statsitcs in a radar plot
+
+    The fourth shows the user how a teams play callig has changed over time   
+
+    The fith page _____
+
+
+
     Thanks & acknowledgements to Dr. Trenton Ford for his help on this project!
     """
 )
