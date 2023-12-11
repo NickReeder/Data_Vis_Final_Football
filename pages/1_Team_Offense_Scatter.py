@@ -154,10 +154,10 @@ fig.update_traces(
 )
 
 fig.add_hline(y = pass_off_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Passing Output',
+              annotation_text = 'League Average',
               annotation_position = 'top left', opacity = 0.7)
 fig.add_vline(x = rush_off_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Rushing Output',
+              annotation_text = 'League Average',
               annotation_position = 'top left', opacity = 0.7)
 
 

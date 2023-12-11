@@ -153,10 +153,10 @@ fig.update_traces(
     marker = dict(size = 10)
 )
 fig.add_hline(y = pass_def_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Passing Concesssion',
+              annotation_text = 'League Average',
               annotation_position = 'top left', opacity = 0.7)
 fig.add_vline(x = rush_def_avg, line_color = 'gray', line_dash = 'dash',
-              annotation_text = 'Avg. Rushing Concesssion',
+              annotation_text = 'League Average',
               annotation_position = 'top left', opacity = 0.7)
 
 
