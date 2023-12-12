@@ -326,9 +326,9 @@ def Ridgeline(stat, year):
 
   return fig
 
+st.set_page_config(page_title="Team Passing Ridge Plot", page_icon="⛰️")
+
 stat = st.sidebar.selectbox('Select Statistic', ['Touchdown','Screen Pass','Play Action Pass'])
 year = st.sidebar.selectbox('Select Season', ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'])
-
-st.set_page_config(page_title="Team Passing Ridge Plot", page_icon="⛰️")
 
 st.plotly_chart(Ridgeline(stat=stat, year=year))
