@@ -163,7 +163,7 @@ fig.add_vline(x = rush_off_avg, line_color = 'gray', line_dash = 'dash',
 
 fig.update_layout(margin=dict(l=30, r=30, t=30, b=30),
                     title = 'Team Offense Scatter Plot',
-                    title_font_size = 20,
+                    title_font_size = 25,
                     legend_title = 'Division',
                         legend = dict(
                                     bgcolor = 'LightBlue',
