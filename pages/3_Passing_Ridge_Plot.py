@@ -320,7 +320,7 @@ def Ridgeline(stat, year):
   fig.add_vline(x = 10, line_color = 'gray', line_dash = 'dash',
                opacity = 0.7,  annotation_text = '10 yds', annotation_position="top")
   
-  fig.update_layout(hoverinfo='none')
+  fig.update_layout(hovermode=False)
   
   fig.update_layout(height=9000, width=600)
 
