@@ -180,4 +180,6 @@ fig.for_each_trace(lambda t: t.update(name = new_names[t.name]))
 
 fig.update_layout(height=600, width=800)
 
+st.set_page_config(page_title="Team Defense Scatter Plot", page_icon="🧱")
+
 st.plotly_chart(fig)
