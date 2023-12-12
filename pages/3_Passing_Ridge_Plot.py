@@ -319,7 +319,8 @@ def Ridgeline(stat, year, throw=throw, game=game):
                opacity = 0.7,  annotation_text = '0 yds', annotation_position="top")
   fig.add_vline(x = 10, line_color = 'gray', line_dash = 'dash',
                opacity = 0.7,  annotation_text = '10 yds', annotation_position="top")
-
+  
+  fig.update_layout(height=1000, width=600)
 
   return fig
 
