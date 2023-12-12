@@ -262,7 +262,7 @@ selected = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
  'GB','HST','IND','JAX','KC','LV','LAC','LA','MIA','MIN','NE','NO',
  'NYG','NYJ','PHI','PIT','SF','SEA','TB','TEN','WAS']
 
-def Ridgeline(stat, year, throw=throw, game=game):
+def Ridgeline(stat, year, throw, game):
 
   if stat == 'Touchdown':
     stat = 0
@@ -324,7 +324,10 @@ def Ridgeline(stat, year, throw=throw, game=game):
 
   return fig
 
+throw = FDB.get_tPass()
+game = FDB.get_tGame()
+
 stat = st.sidebar.selectbox('Select Statistic', ['Touchdown','Screen Pass','Play Action Pass'])
 year = st.sidebar.selectbox('Select Season', ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'])
 
-st.plotly_chart(Ridgeline(stat=stat, year=year))
+st.plotly_chart(Ridgeline(stat=stat, year=year, throw=throw, game=game))
