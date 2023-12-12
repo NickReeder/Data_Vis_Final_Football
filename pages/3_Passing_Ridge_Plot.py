@@ -322,7 +322,7 @@ def Ridgeline(stat, year):
   
   fig.update_layout(hovermode=False)
   
-  fig.update_layout(height=9000, width=600)
+  fig.update_layout(height=900, width=600)
 
   return fig
 
