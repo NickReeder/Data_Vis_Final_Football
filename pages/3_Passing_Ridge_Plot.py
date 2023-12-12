@@ -309,7 +309,7 @@ def Ridgeline(stat, year, throw=throw, game=game):
   if stat == 2:
     phrase = 'Play Action Pass Yards'
 
-  fig.update_layout(xaxis_title = 'Yards', yaxis_title = 'Teams',title = {'text':'Distribution of ' + phrase + ' For ' + str(year) + ' Season By Team', 'font':{'size':20},'x':1},xaxis_showgrid=False, xaxis_zeroline=False, height = 1000, width = 800)
+  fig.update_layout(xaxis_title = 'Yards', yaxis_title = 'Teams',title = {'text':'Distribution of ' + phrase + ' For ' + str(year) + ' Season By Team', 'font':{'size':20},'x':0.01},xaxis_showgrid=False, xaxis_zeroline=False, height = 1000, width = 800)
   fig.update_xaxes(range=[-20, 110])
 
 
