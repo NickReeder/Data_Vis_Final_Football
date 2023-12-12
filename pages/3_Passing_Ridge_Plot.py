@@ -4,8 +4,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-import tkinter as tk
-from tkinter import simpledialog
 import plotly.graph_objects as go
 from plotly.colors import n_colors
 from plotly.subplots import make_subplots
