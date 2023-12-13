@@ -146,3 +146,90 @@ annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
 fig.update_layout(annotations=annotations)
 
 st.plotly_chart(fig)
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(x= df['Season'], y= df['Throws'], mode='lines',
+        name= 'Throws',
+        line=dict(color=colors[0], width=line_size[0]),
+        connectgaps=True,
+    ))
+
+fig.add_trace(go.Scatter(
+      x=[df['Season'][0], df['Season'][0]],
+      y=[df['Throws'][0], df['Throws'][0]],
+      mode='markers',
+      marker=dict(color=colors[0], size=mode_size[0])
+    ))
+
+
+fig.add_trace(go.Scatter(x= df['Season'], y= df['Rushes'], mode='lines',
+        name= 'Rushes',
+        line=dict(color=colors[3], width=line_size[0]),
+        connectgaps=True,
+    ))
+
+fig.add_trace(go.Scatter(
+      x=[df['Season'][0], df['Season'][0]],
+      y=[df['Rushes'][0], df['Rushes'][0]],
+      mode='markers',
+      marker=dict(color=colors[3], size=mode_size[0])
+    ))
+
+fig.update_layout(
+    xaxis=dict(
+        showline=True,
+        showgrid=False,
+        showticklabels=True,
+        linecolor='rgb(204, 204, 204)',
+        linewidth=2,
+        ticks='outside',
+        tickfont=dict(
+            family='Arial',
+            size=12,
+            color='rgb(82, 82, 82)',
+        ),
+    ),
+    yaxis=dict(
+        showgrid=False,
+        zeroline=False,
+        showline=True,
+        showticklabels=True,
+    ),
+    autosize=False,
+    margin=dict(
+        autoexpand=False,
+        l=100,
+        r=20,
+        t=110,
+    ),
+    showlegend=False,
+    plot_bgcolor='white'
+)
+
+annotations = []
+
+for y_trace, label, color in zip(y_data_1, labels, colors):
+
+    # labeling the right_side of the plot
+    annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 250,
+                                  xanchor='right', yanchor='middle',
+                                  text = label,
+
+                                  font=dict(family='Arial',
+                                            size=12),
+                                  showarrow=False))
+
+
+# Title
+annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
+                              xanchor='left', yanchor='bottom',
+                              text='Total Plays by Season',
+                              font=dict(family='Arial',
+                                        size=15,
+                                        color='rgb(37,37,37)'),
+                              showarrow=False))
+
+fig.update_layout(annotations=annotations)
+
+st.plotly_chart(fig)
