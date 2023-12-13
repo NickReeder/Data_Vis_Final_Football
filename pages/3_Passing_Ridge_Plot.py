@@ -4,8 +4,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-import tkinter as tk
-from tkinter import simpledialog
 import plotly.graph_objects as go
 from plotly.colors import n_colors
 from plotly.subplots import make_subplots
@@ -264,7 +262,7 @@ selected = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
  'GB','HST','IND','JAX','KC','LV','LAC','LA','MIA','MIN','NE','NO',
  'NYG','NYJ','PHI','PIT','SF','SEA','TB','TEN','WAS']
 
-def Ridgeline(stat, year, throw=throw, game=game):
+def Ridgeline(stat, year):
 
   if stat == 'Touchdown':
     stat = 0
@@ -279,7 +277,7 @@ def Ridgeline(stat, year, throw=throw, game=game):
   n = 0
 
   merged_throw = throw.merge(game, left_on='game_id', right_on='game_id')
-  throw_year = merged_throw[merged_throw['season'] == year]
+  throw_year = merged_throw[merged_throw['season'] == int(year)]
 
   stat_frame = throw_year[throw_year[options[stat]] == 1.0]
 
@@ -311,7 +309,7 @@ def Ridgeline(stat, year, throw=throw, game=game):
   if stat == 2:
     phrase = 'Play Action Pass Yards'
 
-  fig.update_layout(xaxis_title = 'Yards', yaxis_title = 'Teams',title = {'text':'Distribution of ' + phrase + ' For ' + str(year) + ' Season By Team', 'font':{'size':20},'x':0.5},xaxis_showgrid=False, xaxis_zeroline=False, height = 1000, width = 800)
+  fig.update_layout(xaxis_title = 'Yards', yaxis_title = 'Teams',title = {'text':'Distribution of ' + phrase + ' For ' + str(year) + ' Season By Team', 'font':{'size':20},'x':0.01},xaxis_showgrid=False, xaxis_zeroline=False, height = 1000, width = 800)
   fig.update_xaxes(range=[-20, 110])
 
 
@@ -321,9 +319,14 @@ def Ridgeline(stat, year, throw=throw, game=game):
                opacity = 0.7,  annotation_text = '0 yds', annotation_position="top")
   fig.add_vline(x = 10, line_color = 'gray', line_dash = 'dash',
                opacity = 0.7,  annotation_text = '10 yds', annotation_position="top")
-
+  
+  fig.update_layout(hovermode=False)
+  
+  fig.update_layout(height=900, width=600)
 
   return fig
+
+st.set_page_config(page_title="Team Passing Ridge Plot", page_icon="⛰️")
 
 stat = st.sidebar.selectbox('Select Statistic', ['Touchdown','Screen Pass','Play Action Pass'])
 year = st.sidebar.selectbox('Select Season', ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'])
