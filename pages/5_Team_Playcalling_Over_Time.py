@@ -233,3 +233,10 @@ annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
 fig.update_layout(annotations=annotations)
 
 st.plotly_chart(fig)
+
+fig = go.Figure(go.Scatter(x=[0, 1], y=[10, 6], mode='lines+markers+text', 
+                           text=['start', 'end'], textposition=['middle left', 'middle right']))
+fig.add_shape(type='line', x0=0, x1=0, y0=0, y1=1, xref='x', yref='paper')
+fig.add_shape(type='line', x0=1, x1=1, y0=0, y1=1, xref='x', yref='paper')
+
+st.plotly_chart(fig)
