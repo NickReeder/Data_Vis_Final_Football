@@ -74,7 +74,7 @@ def build_plots(team):
             line=dict(color=colors[1], width=line_size[0]),
             connectgaps=True,
             hovertemplate=
-            "Season: %{str(x):,}<br>" +
+            "Season: %{x:,}<br>" +
             "Plays: %{y:,}<br>" +
             "<extra></extra>"
         ))
