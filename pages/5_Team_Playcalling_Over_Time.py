@@ -73,8 +73,10 @@ def build_plots(team):
             name= 'Throws',
             line=dict(color=colors[1], width=line_size[0]),
             connectgaps=True,
-            hover_data={'Season':df['Season'],
-                        'Plays':df['Play_Action']}
+            hovertemplate=
+            "Season: %{x:,}<br>" +
+            "Plays: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig1.add_trace(go.Scatter(
