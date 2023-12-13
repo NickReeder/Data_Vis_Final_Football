@@ -143,7 +143,7 @@ def build_plots(team):
                                 xanchor='left', yanchor='bottom',
                                 text='Total Play Action and Screen Plays by Season',
                                 font=dict(family='Arial',
-                                            size=15,
+                                            size=25,
                                             color='rgb(37,37,37)'),
                                 showarrow=False))
 
@@ -214,7 +214,7 @@ def build_plots(team):
     for y_trace, label, color in zip(y_data_1, labels, colors):
 
         # labeling the right_side of the plot
-        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 250,
+        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 5,
                                     xanchor='right', yanchor='middle',
                                     text = label,
 
@@ -228,7 +228,7 @@ def build_plots(team):
                                 xanchor='left', yanchor='bottom',
                                 text='Total Plays by Season',
                                 font=dict(family='Arial',
-                                            size=15,
+                                            size=25,
                                             color='rgb(37,37,37)'),
                                 showarrow=False))
 
