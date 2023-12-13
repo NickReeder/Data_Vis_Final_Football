@@ -27,7 +27,7 @@ st.markdown(
 
     Please click through the pages to view a more in depth look at each team.
 
-    The first two pages provide an overview of the leauge, comparing each teams overall offensive and defense efficency.
+    The first two pages provide an overview of the league, comparing each teams overall offensive and defense efficency.
     
     The third page is a ridgeline plot that illustrates the distribution of yards gained on play action, screen, and touchdown passes in a given season.
     
