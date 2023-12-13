@@ -128,8 +128,8 @@ def build_plots(t_1,t_2):
                                     ,line=dict(color="#000000")
                                     ), row = i, col = j)
             
-            fig.add_annotation(text = t_1, x = -0.12, y = 50, showarrow= False, row = i, col = j)
-            fig.add_annotation(text = t_2, x = 2.12, y = y_2[grid[i-1][j-1]], showarrow= False, row = i, col = j)
+            fig.add_annotation(text = t_1, x = -0.08, y = 50, showarrow= False, row = i, col = j)
+            fig.add_annotation(text = t_2, x = 2.08, y = y_2[grid[j-1][i-1]], showarrow= False, row = i, col = j)
 
 
 
