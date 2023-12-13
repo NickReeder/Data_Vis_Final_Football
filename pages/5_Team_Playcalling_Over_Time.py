@@ -122,7 +122,7 @@ def build_plots(team):
             r=20,
             t=110,
         ),
-        showlegend=False,
+        showlegend=True,
         plot_bgcolor='white'
     )
 
@@ -205,7 +205,7 @@ def build_plots(team):
             r=20,
             t=110,
         ),
-        showlegend=False,
+        showlegend=True,
         plot_bgcolor='white'
     )
 
