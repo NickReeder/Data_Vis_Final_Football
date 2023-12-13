@@ -214,7 +214,7 @@ def build_plots(team):
     for y_trace, label, color in zip(y_data_1, labels, colors):
 
         # labeling the right_side of the plot
-        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 5,
+        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 10,
                                     xanchor='right', yanchor='middle',
                                     text = label,
 
