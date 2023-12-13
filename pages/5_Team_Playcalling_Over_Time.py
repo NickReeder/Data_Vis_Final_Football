@@ -143,7 +143,7 @@ def build_plots(team):
                                 xanchor='left', yanchor='bottom',
                                 text='Total Play Action and Screen Plays by Season',
                                 font=dict(family='Arial',
-                                            size=25,
+                                            size=20,
                                             color='rgb(37,37,37)'),
                                 showarrow=False))
 
@@ -228,7 +228,7 @@ def build_plots(team):
                                 xanchor='left', yanchor='bottom',
                                 text='Total Plays by Season',
                                 font=dict(family='Arial',
-                                            size=25,
+                                            size=20,
                                             color='rgb(37,37,37)'),
                                 showarrow=False))
 
