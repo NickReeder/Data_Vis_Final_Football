@@ -270,13 +270,13 @@ fig1, fig2 = build_plots(team = team)
 
 st.plotly_chart(fig1)
 
-st.markdown("""
-            The plot above visualizes the total number of screen and play action passes called by a given NFL team in each season since 2013. There's no doubt the NFL looks far different today than it did nearly a decade ago, and offensive strategy is no exception. NFL offenses have continued to evolve over time and, thus, it is interesting to explore whether they have incorporated more and more unqiue plays such as screens and play-action passes.
+st.sidebar.markdown("""
+            The first plot visualizes the total number of screen and play action passes called by a given NFL team in each season since 2013. There's no doubt the NFL looks far different today than it did nearly a decade ago, and offensive strategy is no exception. NFL offenses have continued to evolve over time and, thus, it is interesting to explore whether they have incorporated more and more unqiue plays such as screens and play-action passes.
             """)
 
 st.plotly_chart(fig2)
 
-st.markdown("""
-            The plot above visualizes the difference in total rush and pass plays for a given team in every season since 2013. Throughout the years, the NFL has transtioned into becoming a more pass-centric league, thus, it is interesting to explore whether each team illustrates a steady increase in passing plays over the last decade.
+st.sidebar.markdown("""
+            The second plot visualizes the difference in total rush and pass plays for a given team in every season since 2013. Throughout the years, the NFL has transtioned into becoming a more pass-centric league, thus, it is interesting to explore whether each team illustrates a steady increase in passing plays over the last decade.
             """)
 
