@@ -332,3 +332,7 @@ stat = st.sidebar.selectbox('Select Statistic', ['Touchdown','Screen Pass','Play
 year = st.sidebar.selectbox('Select Season', ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'])
 
 st.plotly_chart(Ridgeline(stat=stat, year=year))
+
+st.markdown("""
+            The plot above visualizes the yardage distribution amongst all 32 teams using one of three variables: touchdown passes, screen passes, and play action passes. Here, one can assess the effectiveness of a team's passing game compared to the rest of the league in a given season.
+            """)
