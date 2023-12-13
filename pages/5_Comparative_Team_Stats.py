@@ -117,8 +117,9 @@ def build_plots(t_1,t_2):
                             , name = 'Passing Turnover Percentage'
                             ), row = 3, col = 2)
 
+    st.write(pct_change)
 
-    grid = [[0, 1, 2 ],[3, 4, 5]]
+    grid = [[0, 1, 2],[3, 4, 5]]
     for i in [1, 2, 3]:
         for j in [1, 2]:
             fig.add_trace(go.Scatter(x = [t_1,  t_1], y = [25, 75]
