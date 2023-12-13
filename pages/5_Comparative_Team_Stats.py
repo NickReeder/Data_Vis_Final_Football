@@ -110,12 +110,12 @@ def build_plots(t_1,t_2):
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[2])+'%', r_2]
                             ,textposition= ['top right', 'top center', 'top left']
                             , name = 'Rushing Turnover Percentage'
-                            ), row = 2, col = 1)
+                            ), row = 3, col = 1)
     fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[3]) / 2, y_2[3]] 
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[3])+'%', r_2]
                             ,textposition= ['top right', 'top center', 'top left']
                             , name = 'Passing Turnover Percentage'
-                            ), row = 2, col = 2)
+                            ), row = 3, col = 2)
 
 
     grid = [[0, 1, 2 ],[3, 4, 5]]
