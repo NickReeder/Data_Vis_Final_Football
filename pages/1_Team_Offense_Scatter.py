@@ -184,3 +184,8 @@ fig.update_layout(height=600, width=800)
 st.set_page_config(page_title="Team Offense Scatter Plot", page_icon="🎯")
 
 st.plotly_chart(fig)
+
+st.markdown("""
+            Shown here is a scatter plot displaying the offensive output for each NFL team overall. The plot is broken into four sections, split on the averages across the league for each statistic. 
+            """
+            )
