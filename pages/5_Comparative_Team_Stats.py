@@ -57,6 +57,12 @@ def build_plots(t_1,t_2):
     p_1 = float(data[t_1]['pass_off_general']['avg_yard'])
     p_2 = float(data[t_2]['pass_off_general']['avg_yard'])
 
+    r_1_d = float(data[t_1]['rush_def_general']['avg_yards_conceded'])
+    r_2_d = float(data[t_2]['rush_def_general']['avg_yards_conceded'])
+
+    p_1_d = float(data[t_1]['pass_def_general']['avg_yards_conceded'])
+    p_2_d = float(data[t_2]['pass_def_general']['avg_yards_conceded'])  
+
     to_1 = float(data[t_1]['rush_off_general']['turnover_pct'])
     to_2 = float(data[t_2]['rush_off_general']['turnover_pct'])
 
@@ -67,13 +73,18 @@ def build_plots(t_1,t_2):
 
     pct_change = [round(((r_2-r_1)/r_1)*100, 1), round(((p_2-p_1)/p_1)*100, 1),
                 round(((to_2-to_1)/to_1)*100, 1), round(((to_p_2-to_p_1)/to_p_1)*100, 1)]
+    
+    text = [[r_1, str(pct_change[0])+'%', r_2], [p_1, str(pct_change[1])+'%', p_2]
+            ,[r_1_d, str(pct_change[2])+'%', r_2_d], [p_1_d, str(pct_change[3])+'%', p_2_d]
+            , [str(round(to_1*100, 1))+'%', str(pct_change[4])+'%', str(round(to_2*100, 1))+'%'], [str(round(to_p_1*100, 1))+'%', str(pct_change[5])+'%', str(round(to_p_2*100, 1))+'%']]
 
     y_2 = [50*(1 +m/100) for m in pct_change]
     text_pos =[['middle right','top left', 'middle left'] if x >= 0 else ['middle left','top right', 'middle right'] for x in pct_change]
 
-    fig = sp.make_subplots(rows = 2, cols = 2, shared_yaxes=True,
-                        subplot_titles=['Rushing Yards', 'Passing Yards',
-                                        'Rushing Tunronvers', 'Pasing Turnovers'])
+    fig = sp.make_subplots(rows = 3, cols = 2, shared_yaxes=True,
+                        subplot_titles=['Offensive Rushing Yards', ' Offensive Passing Yards',
+                                       'Defensive Rushing Yards Allowed', ' Defensive Passing Yards Allowed',
+                                       'Rushing Turnovers', 'Passing Turnovers'])
 
     fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[0]) / 2, y_2[0]]
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[0])+'%', r_2]
@@ -85,6 +96,16 @@ def build_plots(t_1,t_2):
                             ,textposition= ['top right', 'top center', 'top left']
                             ,name = 'Passing Yards'
                             ), row = 1, col = 2)
+    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[2]) / 2, y_2[2]]
+                            ,mode ='markers+lines+text', text = text[2]
+                            ,textposition= ['top right', 'top center', 'top left']
+                            ,name = 'Rushing Yards'
+                            ), row = 2, col = 1)
+    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[3]) / 2, y_2[3]]
+                            ,mode ='markers+lines+text', text = text[3]
+                            ,textposition= ['top right', 'top center', 'top left']
+                            ,name = 'Passing Yards'
+                            ), row = 2, col = 2)
     fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[2]) / 2, y_2[2]] 
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[2])+'%', r_2]
                             ,textposition= ['top right', 'top center', 'top left']
@@ -97,8 +118,8 @@ def build_plots(t_1,t_2):
                             ), row = 2, col = 2)
 
 
-    grid = [[0, 1],[2, 3]]
-    for i in [1, 2]:
+    grid = [[0, 1, 2 ],[3, 4, 5]]
+    for i in [1, 2, 3]:
         for j in [1, 2]:
             fig.add_trace(go.Scatter(x = [t_1,  t_1], y = [25, 75]
                                     ,line=dict(color="#000000")
