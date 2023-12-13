@@ -121,10 +121,10 @@ def build_plots(t_1,t_2):
     grid = [[0, 1, 2],[3, 4, 5]]
     for i in [1, 2, 3]:
         for j in [1, 2]:
-            fig.add_trace(go.Scatter(x = [t_1,  t_1], y = [25, 75]
+            fig.add_trace(go.Scatter(x = [t_1,  t_1], y = [20, 80]
                                     ,line=dict(color="#000000")
                                     ), row = i, col = j)
-            fig.add_trace(go.Scatter(x = [t_2,  t_2], y = [25, 75]
+            fig.add_trace(go.Scatter(x = [t_2,  t_2], y = [20, 80]
                                     ,line=dict(color="#000000")
                                     ), row = i, col = j)
             
@@ -135,7 +135,7 @@ def build_plots(t_1,t_2):
 
     fig.update_traces(hovertemplate = None, hoverinfo = 'skip')
 
-    fig.update_yaxes(range = [25, 75], visible = False, showgrid = False)
+    fig.update_yaxes(range = [20, 80], visible = False, showgrid = False)
     fig.update_xaxes(showgrid = False, visible = False)
 
     fig.update_layout(margin=dict(l=50, r=50, t=100, b=50)
