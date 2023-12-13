@@ -83,7 +83,9 @@ def build_plots(team):
         y=[df['Play_Action'][0], df['Play_Action'][0]],
         mode='markers',
         marker=dict(color=colors[1], size=mode_size[0]),
-        hovermode=False
+        hovertemplate=
+            "Plays: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig1.add_trace(go.Scatter(x= df['Season'], y= df['Screens'], mode='lines',
@@ -100,7 +102,9 @@ def build_plots(team):
         y=[df['Screens'][0], df['Screens'][0]],
         mode='markers',
         marker=dict(color=colors[2], size=mode_size[0]),
-        hovermode=False
+        hovertemplate=
+            "Plays: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig1.update_layout(
