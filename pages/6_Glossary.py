@@ -1,12 +1,14 @@
 import streamlit as st
 
-st.write("# Welcome to VISTA: Visual Information System for Team Assessment!")
+st.write("# Glossary of Terms")
+
+team_list = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
+ 'GB','HST','IND','JAX','KC','LV','LAC','LA','MIA','MIN','NE','NO',
+ 'NYG','NYJ','PHI','PIT','SF','SEA','TB','TEN','WAS']
 
 st.markdown(
     """
-    The goal of VISTA is to provide the user with a quick and digestable snapshot of a teams perfomance through a visiual medium without comprimising on detail. 
-    Data was collected from PFF Ultimate and contains data on nearly every play from every NFL game for the last 10 seasons! A series of statistics were generatad,
-    and are described below.
+    A series of statistics were generatad and are described below:
 
     * Offensive Efficency: The average yards gained per play
     * Defensive Efficency: The average yards conceded per play
@@ -16,20 +18,39 @@ st.markdown(
     * Defensive First Down Efficency: percentage of plays that conversion a first down
     * Defensive First Down on Fourth Efficiency: percentage of plays that do not allow a first down conversion on fourth down
 
-    Please click through the pages to view a more in depth look at each team.
+    The following are team codes and the NFL teams they refer to:
 
-    The first two pages provide an overview of the leauge, comparing each teams overall offensive and defense efficency.
+    * ARZ = Arizona Cardinals
+    * ATL = Atlanta Falcons
+    * BLT = Baltimore Ravens
+    * BUF = Buffalo Bills
+    * CAR = Carolina Panthers
+    * CHI = Chicago Bears
+    * CIN = Cincinnati Bengals
+    * CLV = Cleveland Browns
+    * DAL = Dallas Cowboys
+    * DEN = Denver Broncos
+    * DET = Detroit Lions
+    * GB = Green Bay Packers
+    * HST = Houston Texans
+    * IND = Indianapolis Colts
+    * JAX = Jacksonville Jaguars
+    * KC = Kansas City Chiefs
+    * LV = Las Vegas Raiders
+    * LAC = Los Angeles Chargers
+    * LA = Los Angeles Rams
+    * MIA = Miami Dolphins
+    * MIN = Minnesota Vikings
+    * NE = New England Patriots
+    * NO = New Orleans Saints
+    * NYG = New York Giants
+    * NYJ = New York Jets
+    * PHI = Philadelphia Eagles
+    * PIT = Pittsburgh Steelers
+    * SF = San Francisco 49ers
+    * SEA = Seattle Seahawks
+    * TB = Tampa Bay Buccaneers
+    * TEN = Tennessee Titans
+    * WAS = Washington Commanders
     
-    The thrid page is a ridgeline plot that____
-    
-    The fourth page allows the user to compare two teams over a variety of statistics in a radar plot.
-
-    The fifth shows the user how a teams play calling has changed over time.   
-
-
-
-
-
-    Thanks & acknowledgements to Dr. Trenton Ford for his help on this project!
-
     """)
