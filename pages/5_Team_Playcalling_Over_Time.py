@@ -61,7 +61,7 @@ colors = ['rgb(67,67,67)', 'rgb(115,115,115)', 'rgb(49,130,189)', 'rgb(189,189,1
 line_size = [2, 2, 4, 2]
 mode_size = [8, 8, 12, 8]
 labels = ['Passes', 'Rushes']
-labels_2 = ['Screen Passes', 'Play Action Passes']
+labels_2 = ['Screen', 'Play Action']
 
 fig = go.Figure()
 
@@ -127,7 +127,7 @@ annotations = []
 for y_trace, label, color in zip(y_data_2, labels_2, colors):
 
     # labeling the right_side of the plot
-    annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 250,
+    annotations.append(dict(xref='paper', x=0.15, y=y_trace[0] + 250,
                                   xanchor='right', yanchor='middle',
                                   text = label,
 
