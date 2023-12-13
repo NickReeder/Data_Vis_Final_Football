@@ -28,11 +28,15 @@ st.markdown(
 
     The first two pages provide an overview of the leauge, comparing each teams overall offensive and defense efficency.
     
-    The third page is a ridgeline plot that____
+    The third page is a ridgeline plot that illustrates the distribution of yards gained on play action, screen, and touchdown passes in a given season.
     
-    The fourth page allows the user to compare two teams over a variety of statistics in a radar plot.
+    The fourth page allows the user to compare two teams over a variety of passing and rushing statistics using radar plots.
 
-    The fifth shows the user how a teams play calling has changed over time.   
+    The fifth page displays a number of slope plots that the user can use to compare teams offensive and defensive output across a number of variables.
+
+    The sixth shows the user how a teams play calling has varied over time.
+
+    The final page is a glossary of terms.
 
     
 
