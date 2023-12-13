@@ -14,6 +14,41 @@ sys.path.append('../')
 with open('data/NFL_Stats.json', 'r') as f:
   data = json.load(f)
 
+team_code_dict = {
+'ARZ':	'Arizona Cardinals',
+'ATL':	'Atlanta Falcons',
+'BLT':	'Baltimore Ravens',
+'BUF':	'Buffalo Bills',
+'CAR':	'Carolina Panthers',
+'CHI':	'Chicago Bears',
+'CIN':	'Cincinnati Bengals',
+'CLV':	'Cleveland Browns',
+'DAL':	'Dallas Cowboys',
+'DEN':	'Denver Broncos',
+'DET':	'Detroit Lions',
+'GB':	'Green Bay Packers',
+'HST':	'Houston Texans',
+'IND':	'Indianapolis Colts',
+'JAX':	'Jacksonville Jaguars',
+'KC':	'Kansas City Chiefs',
+'LV':	'Las Vegas Raiders',
+'LAC':	'Los Angeles Chargers',
+'LA':	'Los Angeles Rams',
+'MIA':	'Miami Dolphins',
+'MIN':	'Minnesota Vikings',
+'NE':	'New England Patriots',
+'NO':	'New Orleans Saints',
+'NYG':	'New York Giants',
+'NYJ':	'New York Jets',
+'PHI':	'Philadelphia Eagles',
+'PIT':	'Pittsburgh Steelers',
+'SF':	'San Francisco 49ers',
+'SEA':	'Seattle Seahawks',
+'TB':	'Tampa Bay Buccaneers',
+'TEN':'Tennessee Titans',
+'WAS':	'Washington Commanders'
+}
+
 def build_plots(t_1,t_2):
 
     r_1 = float(data[t_1]['rush_off_general']['avg_yard'])
@@ -94,8 +129,8 @@ team_list = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
  'GB','HST','IND','JAX','KC','LV','LAC','LA','MIA','MIN','NE','NO',
  'NYG','NYJ','PHI','PIT','SF','SEA','TB','TEN','WAS']
 
-t_1 = st.sidebar.selectbox('Select First Team', team_list)
-t_2 = st.sidebar.selectbox('Select Second Team', team_list)
+t_1 = st.sidebar.selectbox('Select First Team', team_list, index=0)
+t_2 = st.sidebar.selectbox('Select Second Team', team_list, index=1)
 
 fig = build_plots(t_1,t_2)
 
