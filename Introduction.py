@@ -21,8 +21,9 @@ st.image('https://wallpapercave.com/wp/ZSM48St.jpg')
 
 st.markdown(
     """
-    The goal of VISTA is to provide the user with a quick and digestable snapshot of a teams perfomance through a visual medium without compromising on detail. 
-    Data was collected from PFF Ultimate and contains data on nearly every play from every NFL game for the last 10 seasons!
+    Research Goal: The goal of VISTA is to provide a tool that allows a user to gather a quick and digestable snapshot of a teams perfomance through a visual medium without compromising on detail. 
+    
+    Data: Data was collected from PFF Ultimate and contains play-by-play data from every NFL game for the last 10 seasons (2013-2022)
 
     Please click through the pages to view a more in depth look at each team.
 
