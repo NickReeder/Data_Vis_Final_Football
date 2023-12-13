@@ -75,8 +75,8 @@ def build_plots(t_1,t_2):
                 round(((to_2-to_1)/to_1)*100, 1), round(((to_p_2-to_p_1)/to_p_1)*100, 1)]
     
     text = [[r_1, str(pct_change[0])+'%', r_2], [p_1, str(pct_change[1])+'%', p_2]
-            ,[r_1_d, str(pct_change[2])+'%', r_2_d], [p_1_d, str(pct_change[3])+'%', p_2_d]
-            , [str(round(to_1*100, 1))+'%', str(pct_change[4])+'%', str(round(to_2*100, 1))+'%'], [str(round(to_p_1*100, 1))+'%', str(pct_change[5])+'%', str(round(to_p_2*100, 1))+'%']]
+          ,[r_1_d, str(pct_change[2])+'%', r_2_d], [p_1_d, str(pct_change[3])+'%', p_2_d]
+          ,[str(round(to_1*100, 1))+'%', str(pct_change[4])+'%', str(round(to_2*100, 1))+'%'], [str(round(to_p_1*100, 1))+'%', str(pct_change[5])+'%', str(round(to_p_2*100, 1))+'%']]
 
     y_2 = [50*(1 +m/100) for m in pct_change]
     text_pos =[['middle right','top left', 'middle left'] if x >= 0 else ['middle left','top right', 'middle right'] for x in pct_change]
