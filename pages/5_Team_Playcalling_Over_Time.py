@@ -127,7 +127,7 @@ annotations = []
 for y_trace, label, color in zip(y_data_2, labels_2, colors):
 
     # labeling the right_side of the plot
-    annotations.append(dict(xref='paper', x=0.15, y=y_trace[0] + 250,
+    annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 250,
                                   xanchor='right', yanchor='middle',
                                   text = label,
 
