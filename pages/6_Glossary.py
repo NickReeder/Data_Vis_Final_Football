@@ -8,7 +8,7 @@ team_list = ['ARZ','ATL','BLT','BUF','CAR','CHI','CIN','CLV','DAL','DEN','DET',
 
 st.markdown(
     """
-    A series of statistics were generatad and are described below:
+    A series of statistics were generated and are described below:
 
     * Offensive Efficency: The average yards gained per play
     * Defensive Efficency: The average yards conceded per play
