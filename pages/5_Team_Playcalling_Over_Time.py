@@ -60,8 +60,8 @@ y_data_2 = np.array([
 colors = ['rgb(67,67,67)', 'rgb(115,115,115)', 'rgb(49,130,189)', 'rgb(189,189,189)']
 line_size = [2, 2, 4, 2]
 mode_size = [8, 8, 12, 8]
-labels = ['Throws', 'Rushes']
-labels_2 = ['Screens', 'Play Action']
+labels = ['Passes', 'Rushes']
+labels_2 = ['Screen Passes', 'Play Action Passes']
 
 fig = go.Figure()
 
