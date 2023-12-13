@@ -267,3 +267,7 @@ fig2 = build_rush_radar_plot(team1,team2)
 
 st.plotly_chart(fig1)
 st.plotly_chart(fig2)
+
+st.sidebar.markdown("""
+                    Shown here are two radar plots displaying the league rankings of two chosen teams across a number of passing and rushing metrics. Please select two teams to see how they compare.
+                    """)
