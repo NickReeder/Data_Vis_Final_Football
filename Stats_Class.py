@@ -182,7 +182,7 @@ class Stats:
     num_rz = len(rz_plays)
 
     try:
-      rz_effic = sum(rz_plays['touchdown']) / num_rz
+      rz_effic = np.nansum(rz_plays['touchdown']) / num_rz
     except:
       rz_effic = 'fail'
 
@@ -263,9 +263,11 @@ class Stats:
     fp = pd.to_numeric(fp)
     rz_plays = rush_team[np.absolute(fp) >= 20]
     num_rz = len(rz_plays)
-
+    #print(rz_plays)
+    #print(rz_plays['touchdown'])
+    #print(num_rz)
     try:
-      rz_effic = sum(rz_plays['touchdown']) / num_rz
+      rz_effic = np.nansum(rz_plays['touchdown']) / num_rz
     except:
       rz_effic = 'fail'
 
