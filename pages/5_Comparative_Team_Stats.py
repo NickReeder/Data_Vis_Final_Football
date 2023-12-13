@@ -117,7 +117,7 @@ def build_plots(t_1,t_2):
                             , name = 'Passing Turnover Percentage'
                             ), row = 3, col = 2)
 
-    st.write(pct_change)
+    st.write(t_1)
 
     grid = [[0, 1, 2],[3, 4, 5]]
     for i in [1, 2, 3]:
