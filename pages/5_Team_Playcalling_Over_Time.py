@@ -74,7 +74,6 @@ def build_plots(team):
             line=dict(color=colors[1], width=line_size[0]),
             connectgaps=True,
             hovertemplate=
-            "<b>%{name}</b><br><br>" +
             "Plays: %{y:,}<br>" +
             "<extra></extra>"
         ))
@@ -90,6 +89,9 @@ def build_plots(team):
             name= 'Throws',
             line=dict(color=colors[2], width=line_size[0]),
             connectgaps=True,
+            hovertemplate=
+            "Plays: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig1.add_trace(go.Scatter(
