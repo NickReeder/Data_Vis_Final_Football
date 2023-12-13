@@ -106,12 +106,12 @@ def build_plots(t_1,t_2):
                             ,textposition= ['top right', 'top center', 'top left']
                             ,name = 'Passing Yards'
                             ), row = 2, col = 2)
-    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[2]) / 2, y_2[2]] 
+    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[4]) / 2, y_2[4]] 
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[2])+'%', r_2]
                             ,textposition= ['top right', 'top center', 'top left']
                             , name = 'Rushing Turnover Percentage'
                             ), row = 3, col = 1)
-    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[3]) / 2, y_2[3]] 
+    fig.add_trace(go.Scatter(x = [t_1, '', t_2], y = [50, (50 + y_2[5]) / 2, y_2[5]] 
                             ,mode ='markers+lines+text', text = [r_1, str(pct_change[3])+'%', r_2]
                             ,textposition= ['top right', 'top center', 'top left']
                             , name = 'Passing Turnover Percentage'
