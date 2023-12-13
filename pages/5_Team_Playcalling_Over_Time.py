@@ -131,7 +131,7 @@ def build_plots(team):
     for y_trace, label, color in zip(y_data_2, labels_2, colors):
 
         # labeling the right_side of the plot
-        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 250,
+        annotations.append(dict(xref='paper', x=0.1, y=y_trace[0] + 5,
                                     xanchor='right', yanchor='middle',
                                     text = label,
 
@@ -139,7 +139,7 @@ def build_plots(team):
                                                 size=12),
                                     showarrow=False))
 
-    annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
+    annotations.append(dict(xref='paper', yref='paper', x=0.0, y=y_trace[1] + 5,
                                 xanchor='left', yanchor='bottom',
                                 text='Total Play Action and Screen Plays by Season',
                                 font=dict(family='Arial',
