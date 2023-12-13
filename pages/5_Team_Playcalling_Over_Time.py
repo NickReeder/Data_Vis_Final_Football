@@ -167,13 +167,19 @@ def build_plots(team):
             name= 'Throws',
             line=dict(color=colors[0], width=line_size[0]),
             connectgaps=True,
+            hovertemplate=
+            "Passes: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig2.add_trace(go.Scatter(
         x=[df['Season'][0], df['Season'][0]],
         y=[df['Throws'][0], df['Throws'][0]],
         mode='markers',
-        marker=dict(color=colors[0], size=mode_size[0])
+        marker=dict(color=colors[0], size=mode_size[0]),
+        hovertemplate=
+            "Passes: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
 
@@ -181,13 +187,19 @@ def build_plots(team):
             name= 'Rushes',
             line=dict(color=colors[3], width=line_size[0]),
             connectgaps=True,
+            hovertemplate=
+            "Rushes: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig2.add_trace(go.Scatter(
         x=[df['Season'][0], df['Season'][0]],
         y=[df['Rushes'][0], df['Rushes'][0]],
         mode='markers',
-        marker=dict(color=colors[3], size=mode_size[0])
+        marker=dict(color=colors[3], size=mode_size[0]),
+        hovertemplate=
+            "Rushes: %{y:,}<br>" +
+            "<extra></extra>"
         ))
 
     fig2.update_layout(
