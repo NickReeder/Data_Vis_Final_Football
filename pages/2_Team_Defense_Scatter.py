@@ -184,7 +184,7 @@ st.set_page_config(page_title="Team Defense Scatter Plot", page_icon="🧱")
 
 st.plotly_chart(fig)
 
-st.markdown("""
+st.sidebar.markdown("""
             Shown here is a scatter plot displaying the defensive output for each NFL team overall. The plot is broken into four sections; split on the averages across the league for each statistic. 
             """
             )
