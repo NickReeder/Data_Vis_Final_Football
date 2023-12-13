@@ -78,6 +78,12 @@ def build_plots(team):
             "<extra></extra>"
         ))
 
+    fig1.add_trace(go.Scatter(
+        x=[df['Season'][0], df['Season'][0]],
+        y=[df['Play_Action'][0], df['Play_Action'][0]],
+        mode='markers',
+        marker=dict(color=colors[1], size=mode_size[0])
+        ))
 
     fig1.add_trace(go.Scatter(x= df['Season'], y= df['Screens'], mode='lines',
             name= 'Throws',
