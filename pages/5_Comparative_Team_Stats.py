@@ -157,6 +157,6 @@ fig = build_plots(t_1,t_2)
 
 st.plotly_chart(fig)
 
-st.markdown("""
+st.sidebar.markdown("""
             Shown here is a head-to-head comparison on a few key statistics for two teams. Please select two teams and see how they compare.
             """)
