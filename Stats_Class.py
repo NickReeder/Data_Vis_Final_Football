@@ -67,6 +67,11 @@ class Stats:
     self.throw['offense'] = self.throw['offense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
     self.throw['defense'] = self.throw['defense'].map(lambda x: self.changed_team[x] if x in self.changed_team.keys() else x)
     
+    print(self.rush.head())
+    print(self.rush.head())
+
+    print(self.rush['fieldpos'])
+    print(self.throw['fieldpos'])
     
 
     self.rush_off = self.rush['offense'].unique()
@@ -170,11 +175,24 @@ class Stats:
     else:
       turnover_pct = np.nansum(team_df['fumbles'])/num_plays
 
+
+    fp = team_df['fieldpos'].copy()
+    fp = pd.to_numeric(fp)
+    rz_plays = team_df[np.absolute(fp) >= 10]
+    num_rz = len(rz_plays)
+
+    try:
+      rz_effic = sum(rz_plays['touchdown']) / num_rz
+    except:
+      rz_effic = 'fail'
+
+
     stats_dict = {'avg_yards_conceded': str(round(avg_yards_conceded, 3)),
                   'median_yards_conceded': str(median_yards_conceded),
                   'first_down_efficency': str(round(1 - first_down_efficency, 5)),
                   'first_down_on_fourth_effic': str(round(1 - first_down_on_fourth_effic, 5)),
-                  'turnover_pct': str(round(1 - turnover_pct, 5))
+                  'turnover_pct': str(round(1 - turnover_pct, 5)),
+                  'rz_effic': str(round(1 - rz_effic, 5))
                   }
 
     return(stats_dict)
@@ -241,11 +259,23 @@ class Stats:
       turnover_pct = np.nansum(rush_team['fumbles'])/num_plays
 
 
+    fp = rush_team['fieldpos'].copy()
+    fp = pd.to_numeric(fp)
+    rz_plays = rush_team[np.absolute(fp) >= 20]
+    num_rz = len(rz_plays)
+
+    try:
+      rz_effic = sum(rz_plays['touchdown']) / num_rz
+    except:
+      rz_effic = 'fail'
+
+
     stats_dict = {'avg_yard': str(np.round(avg_yard, 3)),
                   'median_yard': str(median_yard),
                   'fd_effic': str(np.round(fd_effic, 5)),
                   'first_down_on_fourth_effic': str(np.round(first_down_on_fourth_effic, 5)),
-                  'turnover_pct': str(np.round(turnover_pct, 5))
+                  'turnover_pct': str(np.round(turnover_pct, 5)),
+                  'rz_effic': str(np.round(rz_effic, 5))
                 }
     return(stats_dict)
 
